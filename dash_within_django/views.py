@@ -27,8 +27,12 @@ def dash_ajax(request, **kwargs):
 
 def dash_django_page(request, author_id):
 
+    print('*********', request)
+
     # get the django context:
     author = get_object_or_404(Author, pk=author_id)
+
+    print('*********', author)
 
     print("Function: dash_django_page(): Getting 'dash_content'")
     dash_content = HttpResponse(dash_dispatcher(request,), content_type='application/json').getvalue()
